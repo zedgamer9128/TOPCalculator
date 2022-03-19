@@ -1,10 +1,17 @@
+let link = document.querySelector("link");
+let body = document.querySelector("body");
+let calculator = document.querySelector("#calculator");
+let scr = document.querySelector('#screen');
+let btn = document.querySelectorAll("button");
+let num = document.querySelector(".num");
+let colorBtn = document.querySelector("#colorScheme");
+let side = document.querySelector(".side");
+let pointBtn = document.querySelector("#point");
 let num1 = null;
 let num2 = null;
 let op = null;
 let result = null;
-let btn = document.querySelectorAll("button");
-let scr = document.querySelector('#screen')
-let pointBtn = document.querySelector("#point");
+
 
 window.addEventListener('keydown', button => {
     btn.forEach(btn => {
@@ -62,7 +69,7 @@ function calculate(btn) {
         op = btn.textContent;
         num2 = null;
         pointBtn.disabled = false;
-    } else if (btn.classList.contains('op')) {
+    } else if (btn.classList.contains('op') && scr.textContent !== '') {
         if (op !== null) {
             scr.textContent = scr.textContent.slice(0, -1);
             op = btn.textContent;
@@ -127,3 +134,14 @@ function operate(a, b, op) {
             break;
     }
 }
+
+
+colorBtn.addEventListener("click", () => {
+    if (colorBtn.textContent === "Light") {
+        colorBtn.textContent = "Dark"
+        link.href = "light-style.css";
+    } else {
+        colorBtn.textContent = "Light"
+        link.href = "dark-style.css";
+    }
+})

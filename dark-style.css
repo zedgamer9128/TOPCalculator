@@ -3,8 +3,8 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background-color: #7ba9d1;
-    color: black;
+    background-color: rgb(0, 33, 66);
+    color: rgb(175, 173, 170);
 }
 
 #content {
@@ -16,16 +16,16 @@ body {
 }
 
 #calculator {
-    border: 10px #3F51B5 solid;
+    border: 10px #000c53 solid;
     border-radius: 10px;
     height: fit-content;
     width: 450px;
-    background: #3f51b5;
+    background-color: #03115c;
 }
 
 #screen {
     display: flex;
-    border: #8888d7 10px solid;
+    border: #00003d 10px solid;
     margin: 2px;
     flex-wrap: wrap;
     font-size: 45px;
@@ -35,8 +35,8 @@ body {
     width: -webkit-fill-available;
     overflow-wrap: break-word;
     resize: none;
-    background-color: #addded;
-    color: black;
+    background-color: #001829;
+    color: #afadaa;
 }
 
 #screen:focus-visible {
@@ -48,15 +48,16 @@ button {
     width: 109px;
     font-size: 33px;
     margin: 1px;
-    color: black;
+    color: #afadaa;
 }
 
-.num {
-    background-color: #97dff3;
+.num,
+#colorScheme {
+    background-color: #002639;
 }
 
 .side {
-    background-color: #65d0f3;
+    background-color: #003958;
 }
 
 #keypad {
