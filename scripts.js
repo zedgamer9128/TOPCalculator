@@ -12,7 +12,16 @@ let num2 = null;
 let op = null;
 let result = null;
 
-
+if (localStorage.getItem("theme")) {
+    theme(localStorage.getItem("theme"));
+} else {
+    let date = new Date().getHours();
+    if (date >= 19 || date <= 5) {
+        theme("Dark");
+    } else { 
+        theme("Light");
+    }
+}
 window.addEventListener('keydown', button => {
     btn.forEach(btn => {
         console.log(button.key);
@@ -136,12 +145,18 @@ function operate(a, b, op) {
 }
 
 
-colorBtn.addEventListener("click", () => {
-    if (colorBtn.textContent === "Light") {
-        colorBtn.textContent = "Dark"
+function theme(scheme) {
+    if (scheme === "Light") {
+        colorBtn.textContent = "Dark";
         link.href = "light-style.css";
+        localStorage.setItem("theme", "Light");
     } else {
-        colorBtn.textContent = "Light"
+        colorBtn.textContent = "Light";
         link.href = "dark-style.css";
+        localStorage.setItem("theme", "Dark");
     }
+}
+
+colorBtn.addEventListener("click", () => {
+    theme(colorBtn.textContent);
 })
