@@ -51,6 +51,10 @@ function calculate(btn) {
     } else if (btn.classList.contains('op') && num1 !== null && op !== null) {
         num2 = parseFloat(scr.textContent.substring(scr.textContent.indexOf(op) + 1));
         let result1 = operate(num1, num2, op);
+        if (result1 === NaN || result1 === null || result1 === Infinity) {
+            scr.textContent = "Error!"
+            return;
+        } 
         result1 = Math.round(result1 * 100) / 100;
         scr.textContent = result1;
         num1 = result1;
@@ -77,6 +81,10 @@ function calculate(btn) {
     } else if (btn.classList.contains('eq') && num1 !== null && op !== null) {
         num2 = parseFloat(scr.textContent.substring(scr.textContent.indexOf(op) + 1));
         result = operate(num1, num2, op);
+        if (result === NaN || result === null || result === Infinity) {
+            scr.textContent = "Error!"
+            return;
+        } 
         result = Math.round(result * 100) / 100;
         scr.textContent = result;
         num1 = result
